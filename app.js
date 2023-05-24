@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 mongoose.connect('mongodb+srv://admin:pw@cluster0.6d8rfyu.mongodb.net/', { useNewUrlParser: true, useUnifiedTopology: true });
 
 // CORS to allow front end to join from 3001
-app.use(cors({ origin: ['http://localhost:3001', 'http://localhost:3002'] }));
+app.use(cors({ origin: ['http://localhost:3001', 'http://localhost:3002, http://34.129.183.176:3000, http://34.129.183.176:3001, http://34.129.183.176:3002'] }));
 
 // redirect to login
 app.get('/', (req, res) => res.redirect('/login'));
