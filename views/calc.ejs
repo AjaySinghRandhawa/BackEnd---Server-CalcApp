@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <style>
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <div class="display">
+      <!-- Display area for the calculator -->
+      <input type="text" id="result" readonly>
+    </div>
+    <div class="buttons">
+      <!-- Number buttons -->
+      <button onclick="appendNumber(0)">0</button>
+      <button onclick="appendNumber(1)">1</button>
+      <button onclick="appendNumber(2)">2</button>
+      <button onclick="appendNumber(3)">3</button>
+      <button onclick="appendNumber(4)">4</button>
+      <button onclick="appendNumber(5)">5</button>
+      <button onclick="appendNumber(6)">6</button>
+      <button onclick="appendNumber(7)">7</button>
+      <button onclick="appendNumber(8)">8</button>
+      <button onclick="appendNumber(9)">9</button>
+      <button onclick="appendOperator('(')">(</button>
+      <button onclick="appendOperator(')')">)</button>
+
+      <!-- Operator buttons -->
+      <button onclick="setOperator('+')">+</button>
+      <button onclick="setOperator('-')">-</button>
+      <button onclick="setOperator('*')">*</button>
+      <button onclick="setOperator('/')">/</button>
+      <button onclick="setOperator('**')">^</button>
+      <button onclick="setOperator('Math.sqrt(')">√</button>
+      <button onclick="setOperator('Math.sin(')">sin</button>
+      <button onclick="setOperator('Math.cos(')">cos</button>
+      <button onclick="setOperator('Math.tan(')">tan</button>
+
+      <!-- Other buttons -->
+      <button onclick="calculate()">=</button>
+      <button onclick="clearInput()">AC</button>
+    </div>
+  </div>
+
+  <script>
+    let input = ''; // Variable to store the input value
+
+    function appendNumber(number) {
+      input += number; // Append the clicked number to the input
+      document.getElementById('result').value = input; // Update the input value
+    }
+
+    function setOperator(operator) {
+      input += operator; // Append the clicked operator to the input
+      document.getElementById('result').value = input; // Update the input value
+    }
+
+    function appendOperator(operator) {
+      input += operator; // Append the clicked operator to the input
+      document.getElementById('result').value = input; // Update the input value
+    }
+
+    function clearInput() {
+      input = ''; // Clear the input value
+      document.getElementById('result').value = input; // Update the input value
+    }
+
+    function calculate() {
+      let result;
+
+      try {
+        // Use eval to evaluate the expression
+        result = eval(input);
+      } catch (error) {
+        // Handle any evaluation errors
+        result = 'Invalid input';
+      }
+
+      // Update the input value with the result
+      input = result.toString();
+      document.getElementById('result').value = input;
+    }
+  </script>
+  
+</body>
+</html>
